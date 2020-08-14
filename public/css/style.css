@@ -1,0 +1,22 @@
+.text-size{
+	font-size: 20px;
+}
+.div-pad{
+	padding: 60px;
+}
+.div-pad2{
+	padding: 30px;
+}
+.heading-size{
+	font-size: 25px;
+}
+.table-center{
+	text-align: -webkit-center;
+}
+.img-pad{
+	padding: 10px;
+}
+.textRed{
+	color: red;
+	font-weight: 500;
+}

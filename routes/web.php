@@ -23,7 +23,7 @@ Auth::routes([
   'reset' => false, // Password Reset Routes...
   'verify' => false, // Email Verification Routes...
 ]);
-Route::resource('company', 'CompanyCRUDController');
-Route::resource('employee', 'EmployeeCRUDController');
+Route::resource('company', 'CompanyCRUDController')->middleware('auth');
+Route::resource('employee', 'EmployeeCRUDController')->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');

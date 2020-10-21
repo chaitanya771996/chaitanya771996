@@ -66,7 +66,7 @@
 		                        	@if(isset($companies) &&  !empty($companies->toArray()['data']))
 								    @foreach ($companies as $company)
 								    <tr>
-								        <td><img src="{{asset('storage/'.$company->logo)}}"></td>
+								        <td><img src="{{asset('storage/'.$company->logo)}}" alt="company logo"></td>
 								        <td>{{ $company->name }}</td>
 								        <td>{{ $company->email }}</td>
 								        <td>{{ $company->website }}</td>

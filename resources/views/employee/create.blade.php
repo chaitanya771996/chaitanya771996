@@ -55,7 +55,7 @@
         <option>Select Company</option>
         @if(isset($company_listing))
         @foreach($company_listing as $company)
-        <option value="{{$company->id}}" {{ old('company_id',(isset($emp_detail) && !empty($emp_detail->last_name) && ($emp_detail->company_id == $company->id ))?'selected':'')}} >{{$company->name}}</option>
+        <option value="{{$company->id}}" {{ old('company_id',(isset($emp_detail) && ($emp_detail->company_id)?$emp_detail->company_id:''))}} {{(isset($emp_detail) && !empty($emp_detail->last_name) && ($emp_detail->company_id == $company->id )?'selected':'')}}>{{$company->name}}</option>
         @endforeach
         @endif
       </select>

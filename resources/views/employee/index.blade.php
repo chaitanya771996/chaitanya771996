@@ -74,10 +74,10 @@
 								        <td>{{ $emp->email }}</td>
 								        <td>{{ $emp->phone }}</td>
 								        <td>
-								        	<div class="edit_data d-inline-block"><a href="{{route('employee.edit',encrypt($emp->id))}}"><button class="btn btn-primary btn-xs">Edit</button></a></div>
+								        	<div class="edit_data d-inline-block"><a href="{{route('employee.edit',encrypt($emp->id))}}"><button class="btn btn-primary btn-xs" title="Edit"><i class="fa fa-pencil"></i></button></a></div>
 								        	<div class="delete_data d-inline-block">
 								        		<form action="{{ route('employee.destroy', $emp->id)}}" method="post" style="display:inline;">
-										        <button class="btn btn-danger btn-xs" onclick="return confirm('Are you sure, you want to delete this ?')">Delete</button>
+										        <button class="btn btn-danger btn-xs" title="Delete" onclick="return confirm('Are you sure, you want to delete this ?')"><i class="fa fa-trash"></i></button>
 										        {{ method_field('DELETE') }}
 										        {{ csrf_field() }}
 										      </form>

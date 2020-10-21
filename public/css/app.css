@@ -10903,4 +10903,30 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+.manage{
+  display: block;
+  padding: 50px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 600;
+}
+a:hover{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.company_div{
+  background-color: #311212;
+  /*padding: 50px;*/
+  border-radius: 20px;
+}
+.employee_div{
+  background-color: #606063;
+  /*padding: 50px;*/
+  border-radius: 20px;
+}
+.fa-users,.fa-building{
+  margin-left: 10px;
+}
 

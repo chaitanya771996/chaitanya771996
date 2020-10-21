@@ -58,7 +58,7 @@
       <label class="custom-file-label" for="customFile">Choose file</label>
     </div>
       @if(isset($company_detail) && !empty($company_detail->logo) )
-        <img src="{{asset('storage/'.$company_detail->logo)}}" class="img-responsive img-pad">
+        <a href="{{asset('storage/'.$company_detail->logo)}}" target="_blank"><img src="{{asset('storage/'.$company_detail->logo)}}" class="img-responsive img-pad"></a>
       @endif
     <div class="form-group">
       <label for="email">Website:</label>

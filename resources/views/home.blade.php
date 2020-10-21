@@ -15,12 +15,16 @@
                     @endif
                     <div class="text-center heading-size">
                         
-                    {{ __('Welcome to Mini-CRM Portal!') }}
+                    {{ __('Welcome !') }}
                     </div>
 
-                    <div class="text-center div-pad">
-                        <a href="{{url('/company')}}"><button type="button" class="btn btn-secondary text-size mt-5">Manage Companies</button></a>
-                        <a href="{{url('/employee')}}"><button type="button" class="btn btn-dark text-size mt-5">Manage Employees</button></a>
+                    <div class="text-center div-pad row">
+                        <div class="col-md-6 company_div">
+                            <a href="{{url('/company')}}" class="manage">{{ __('Manage Companies') }}<i class="fa fa-building"></i></a>
+                        </div>
+                        <div class="col-md-6 employee_div">
+                            <a href="{{url('/employee')}}" class="manage">{{ __('Manage Employees') }}<i class="fa fa-users"></i></a>
+                        </div>
                     </div>
 
                 </div>

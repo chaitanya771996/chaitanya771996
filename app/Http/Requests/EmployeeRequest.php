@@ -26,7 +26,7 @@ class EmployeeRequest extends FormRequest
         return [
             'fname' => 'required',
             'lname' => 'required',
-            'phone' => 'min:10',
+            'phone' => 'numeric|min:10',
         ];
     }
 

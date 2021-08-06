@@ -10926,6 +10926,11 @@ a:hover{
   /*padding: 50px;*/
   border-radius: 20px;
 }
+.dept_div{
+  background-color: #a6a9ab;
+  /*padding: 50px;*/
+  border-radius: 20px;
+}
 .fa-users,.fa-building{
   margin-left: 10px;
 }

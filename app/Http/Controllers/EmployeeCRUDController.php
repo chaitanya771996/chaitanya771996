@@ -7,6 +7,7 @@ use App\Http\Requests\EmployeeRequest;
 use App\Models\AdminUser;
 use App\Models\Employee;
 use App\Models\Company;
+use App\Models\Department;
 
 class EmployeeCRUDController extends Controller
 {
@@ -17,8 +18,8 @@ class EmployeeCRUDController extends Controller
      */
     public function index()
     {
-        $employees = Employee::with('company')->orderBy('id','desc')->paginate(10);
-        // dd($companies->toArray());
+        $employees = Employee::with('company')->orderBy('id','desc')->paginate(1);
+        // dd($employees->toArray());
 
         return view('employee.index', ['employees' => $employees]);
         // return view('company.index');
@@ -31,9 +32,10 @@ class EmployeeCRUDController extends Controller
      */
     public function create()
     {
-        $company_listing = Company::get();
+        $company_listing    = Company::get();
+        $dept_listing       = Department::get();
         // dd($company_listing->toArray());
-       return view('employee.create',['company_listing' => $company_listing]);
+       return view('employee.create',['company_listing' => $company_listing, 'dept_listing'=> $dept_listing]);
     }
 
     /**
@@ -55,11 +57,12 @@ class EmployeeCRUDController extends Controller
                 'company_id' => $request->company_id,
                 'email' => $request->email,
                 'phone' => $request->phone,
+                'dept_id'=> $request->dept_id
         ];
         
         if($id){
 
-            $insert = Employee::updateOrCreate(['id'=>$id],$data);
+            $insert = Employee::updateOrCreate(['id'=>$id], $data);
             $msg = 'Employee details has been Updated';
         }else{
             $insert = Employee::create($data);
@@ -69,7 +72,7 @@ class EmployeeCRUDController extends Controller
         if($insert){
             return redirect(route('employee.index'))->with('success',$msg);
         }
-        // dd($request->all());
+        
     }
 
     /**
@@ -93,10 +96,11 @@ class EmployeeCRUDController extends Controller
     {
         $id = decrypt($id);
         $company_listing = Company::get();
+        $dept_listing    = Department::get();
         $emp_detail = Employee::where('id',$id)->first();
         // dd($company_detail->toArray());
 
-        return view('employee.create', ['emp_detail' => $emp_detail,'company_listing' => $company_listing]);
+        return view('employee.create', ['emp_detail' => $emp_detail,'company_listing' => $company_listing, 'dept_listing'=> $dept_listing]);
     }
 
     /**

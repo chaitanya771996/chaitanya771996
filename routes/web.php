@@ -18,6 +18,7 @@ Route::get('/', function () {
     })->middleware('auth');
 
 
+
 Auth::routes([
   'register' => false, // Registration Routes...
   'reset' => false, // Password Reset Routes...
@@ -25,5 +26,11 @@ Auth::routes([
 ]);
 Route::resource('company', 'CompanyCRUDController')->middleware('auth');
 Route::resource('employee', 'EmployeeCRUDController')->middleware('auth');
+Route::get('department/list', 'DepartmentController@list')->name('department.home')->middleware('auth'); // for listing departments
+Route::get('department/add', 'DepartmentController@addDepartment')->name('department.add')->middleware('auth'); // for add
+Route::post('department/store', 'DepartmentController@store')->middleware('auth');
+Route::get('department/edit/{dept_id}', 'DepartmentController@edit')->name('department.edit')->middleware('auth'); // for edit 
+Route::delete('department/delete/{dept_id}', 'DepartmentController@delete')->name('department.delete')->middleware('auth'); // for delete 
+
 
 Route::get('/home', 'HomeController@index')->name('home');

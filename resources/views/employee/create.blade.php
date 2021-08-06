@@ -38,6 +38,7 @@
       @endif
 
     </div>
+
   <form action="{{ route('employee.store')}}" id="emp_form" method="POST">
     @csrf()
     <input type="hidden" name="emp_id" value="{{ isset($emp_detail)?encrypt($emp_detail->id):''}}">
@@ -55,11 +56,22 @@
         <option>Select Company</option>
         @if(isset($company_listing))
         @foreach($company_listing as $company)
-        <option value="{{$company->id}}" {{ old('company_id',(isset($emp_detail) && ($emp_detail->company_id)?$emp_detail->company_id:''))}} {{(isset($emp_detail) && !empty($emp_detail->last_name) && ($emp_detail->company_id == $company->id )?'selected':'')}}>{{$company->name}}</option>
+        <option value="{{$company->id}}" {{ old('company_id',(isset($emp_detail) && ($emp_detail->company_id)?$emp_detail->company_id:''))}} {{(isset($emp_detail) && !empty($emp_detail->last_name) && ($emp_detail->company_id == $company->id )?'selected':'')}} > {{$company->name}}</option>
         @endforeach
         @endif
       </select>
       
+    </div>
+    <div class="form-group">
+      <label>Department :</label>
+      <select class="form-control" name="dept_id">
+        <option>Select Department</option>
+        @if(isset($dept_listing))
+        @foreach($dept_listing as $department)
+        <option value="{{$department->id}}" {{old('dept_id', (isset($emp_detail) && ($emp_detail->dept_id == $department->id)? "selected": ""))}} >{{$department->dept_name}}</option>
+        @endforeach
+        @endif
+      </select>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>

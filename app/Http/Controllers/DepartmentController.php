@@ -29,7 +29,7 @@ class DepartmentController extends Controller
             }
 
         });*/
-        
+        /*echo "New changes added"; -- Added comment for department listing*/
         $department = Department::orderBy('id', 'asc')->paginate(2);
         return view('department.index', ['department'=>$department]);
     }
